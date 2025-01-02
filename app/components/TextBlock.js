@@ -68,7 +68,14 @@ function updateColor(setBackgroundColor, setColor) {
 }
 
  function TextBlock ({char,pos}) {
-    let blockClass = pos == 'first' ? 'text-block first' : 'text-block';
+    let blockClass ='text-block';
+    if (pos ==='first') {
+        blockClass += ' first'
+    }
+    
+    if (pos === 'last') {
+        blockClass += ' last'
+    }
     const [backgroundColor, setBackgroundColor] = useState('black');
     const [color, setColor] = useState('white');
     useEffect(() => {
