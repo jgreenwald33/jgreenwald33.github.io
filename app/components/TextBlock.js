@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 function RGBToHSL(r,g,b) {
     // Make r, g, and b fractions of 1
@@ -67,7 +67,13 @@ function updateColor(setBackgroundColor, setColor) {
     setColor(`hsl(${hslVals[0]} 100 ${saturation})`);
 }
 
- function TextBlock ({char,pos}) {
+ function TextBlock ({char, pos, siblings}) {
+    const handleResize = useCallback(() => {
+        console.log('num siblings:', siblings);
+        let windowWidth = window.innerWidth;
+        setBlockSize(`${Math.floor(windowWidth / (siblings + 1))}px`);
+    }, [siblings]);
+
     let blockClass ='text-block';
     if (pos ==='first') {
         blockClass += ' first'
@@ -78,15 +84,23 @@ function updateColor(setBackgroundColor, setColor) {
     }
     const [backgroundColor, setBackgroundColor] = useState('black');
     const [color, setColor] = useState('white');
+
+    // default to blocks having 200px x 200px size 
+    const [blockSize, setBlockSize] = useState('200px');
     useEffect(() => {
         updateColor(setBackgroundColor, setColor);
-    }, []); 
+        window.addEventListener('resize', handleResize);
+        
+        return () => window.removeEventListener('resize', handleResize());
+    }, [handleResize]); 
 
     return (
         <div className={blockClass}
             style={{
                 color: color,
-                backgroundColor: backgroundColor
+                backgroundColor: backgroundColor,
+                width:blockSize,
+                height: blockSize
             }}
             onMouseEnter={()=> updateColor(setBackgroundColor, setColor)}
         >
