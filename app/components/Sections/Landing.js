@@ -3,7 +3,7 @@ import BlockContainer from "../BlockContainer";
 import RotatingText from "../RotatingText";
 import Image from "next/image";
 import lullofiLogo from "../../../public/lullofilogo.png"
-export default function Welcome() {
+export default function Landing() {
     return (
         <section className="w-screen h-screen flex py-0 px-20 items-center justify-around bg-[#161c1f]"
           id="home">

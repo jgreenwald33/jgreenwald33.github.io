@@ -1,19 +1,13 @@
-import Image from "next/image";
-import BlockContainer from "./components/BlockContainer";
-import RotatingText from "./components/RotatingText";
-import Welcome from "./components/Sections/Welcome";
 import Navbar from "./components/Navbar";
-import About from "./components/Sections/About";
+import Landing from "./components/Sections/Landing";
+import Home from "./components/Sections/Home"
 
-export default function Home() {
+export default function Page() {
   return (
     <div className="flex-col gap-0">
-      <Welcome />
+      <Landing />
       <Navbar links={["products", "downloads","meet the team", "faq", "contact"]}/>
-      <About/>
-      <Welcome />
-      <Welcome />
-      <Welcome />
+      <Home/>
     </div>
   );
 }
