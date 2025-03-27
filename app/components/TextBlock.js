@@ -70,8 +70,8 @@ function updateColor(setBackgroundColor, setColor) {
  function TextBlock ({char, pos, siblings}) {
     const handleResize = useCallback(() => {
         console.log('num siblings:', siblings);
-        let windowWidth = window.innerWidth;
-        setBlockSize(`${Math.floor(windowWidth / (siblings + 1))}px`);
+        let parentWidth = document.querySelector('.block-container').offsetWidth;
+        setBlockSize(`${Math.floor(parentWidth / (siblings + 1))}px`);
     }, [siblings]);
 
     let blockClass ='text-block';
@@ -89,6 +89,7 @@ function updateColor(setBackgroundColor, setColor) {
     const [blockSize, setBlockSize] = useState('200px');
     useEffect(() => {
         updateColor(setBackgroundColor, setColor);
+        handleResize();
         window.addEventListener('resize', handleResize);
         
         return () => window.removeEventListener('resize', handleResize());

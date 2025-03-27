@@ -1,23 +1,19 @@
 import Image from "next/image";
 import BlockContainer from "./components/BlockContainer";
 import RotatingText from "./components/RotatingText";
+import Welcome from "./components/Sections/Welcome";
+import Navbar from "./components/Navbar";
+import About from "./components/Sections/About";
 
 export default function Home() {
   return (
-    <>
-      <section style={{
-        width:'100vw',
-        height: '100vh',
-        display:'flex',
-        flexDirection: 'column',
-        justifyContent:'center',
-        alignContent:'center',
-        padding: '0 5rem'
-      }}
-      id="welcome">
-        <BlockContainer phrase={"Hello!"}/>
-        <h1 style={{textAlign:'center', fontSize: 'calc(1rem + 1vw)'}}>I'm Jacob Greenwald</h1>
-      </section>
-    </>
+    <div className="flex-col gap-0">
+      <Welcome />
+      <Navbar links={["products", "downloads","meet the team", "faq", "contact"]}/>
+      <About/>
+      <Welcome />
+      <Welcome />
+      <Welcome />
+    </div>
   );
 }

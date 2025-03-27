@@ -5,8 +5,6 @@ import TextBlock from "./TextBlock"
 
 
 export default function BlockContainer({phrase}) {
-    const [blockSize, setBlockSize] = useState('200px');
-
     return (
         <div className="block-container">
             {phrase.split('').map((char, index) => {

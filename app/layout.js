@@ -12,8 +12,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Jacob Greenwald",
-  description: "Jacob Greenwald's portfolio",
+  title: "lullo-fi",
+  description: "lo-fi audio plugin",
 };
 
 export default function RootLayout({ children }) {
