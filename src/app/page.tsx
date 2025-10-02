@@ -1,11 +1,12 @@
+"use client"
 import Image from "next/image";
+import FileUpload from "./Components/FileUpload";
+
 
 export default function Home() {
   return (
-    <div className="h-screen w-screen flex justify-center items-center">
-      <h1 className="text-4xl">
-        Hi Catherine!
-      </h1>
+    <div className="min-h-screen min-w-screen flex justify-center items-center flex-col">
+      <FileUpload/>
     </div>
   );
 }
